@@ -1,7 +1,7 @@
 package flink.demo
 
 import org.apache.flink.api.scala.{AggregateDataSet, DataSet, ExecutionEnvironment, GroupedDataSet}
-
+import org.apache.flink.streaming.api.scala._
 
 class demo1_WORDCOUNT {
 }
