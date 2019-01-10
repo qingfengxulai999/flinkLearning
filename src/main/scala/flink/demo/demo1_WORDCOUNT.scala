@@ -8,7 +8,6 @@ class demo1_WORDCOUNT {
 
 object demo1_WORDCOUNT{
   def main(args: Array[String]): Unit = {
-    ExecutionEnvironment
     //1.获取一个execution environment
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
     //2.加载/创建初始数据
