@@ -25,6 +25,7 @@ object most_values {
     val input: DataSet[(Int, String, Double)] = env.fromCollection(data)
     //分组求top
     val result: AggregateDataSet[(Int, String, Double)] = input.groupBy(1).aggregate(Aggregations.MAX,2)
+    result.print()
     //可以指定多列排序
     input.minBy(2,0).print()
 
