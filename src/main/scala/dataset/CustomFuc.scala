@@ -10,7 +10,7 @@ import org.apache.flink.util.Collector
 /**
   * 这里用自定义reduce函数代替了在main函数中直接书写逻辑,这样在main函数中大大减少了代码量
   * 为后续维护带来的便利,但是这里使用的reduceGroup容易产生oom的问题,因为需要一次性转化完毕
-  * 还有一种combineGroup,它不容易产生oom,但是有可能得到不完整的结果
+  * 还有一种combineGroup,它较reduceGroup不容易产生oom,但是有可能得到不完整的结果
   */
 object Custom_fuc {
   def main(args: Array[String]): Unit = {
