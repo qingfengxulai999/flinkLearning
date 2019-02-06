@@ -11,7 +11,7 @@ object demo1_WORDCOUNT{
     //1.获取一个execution environment
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
     //2.加载/创建初始数据
-    val text = env.fromElements(
+    val text: DataSet[String] = env.fromElements(
       "Who's there?",
       "I think I hear them. Stand, ho! Who's there?")
     //3.指定这些数据的转换

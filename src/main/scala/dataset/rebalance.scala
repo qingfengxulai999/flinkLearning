@@ -1,6 +1,6 @@
 package dataset
 
-import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment, GroupedDataSet}
+import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment}
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.api.common.functions.RichMapFunction
 
@@ -12,7 +12,7 @@ object rebalance {
     //遍历分区,均分
     val rebalanceData: DataSet[Long] = data.rebalance()
     val result: DataSet[(Int, Long)] = rebalanceData.map(new RichMapFunction[Long, (Int, Long)] {
-      def map(in: Long) = {
+      def map(in: Long): (Int, Long) = {
         (getRuntimeContext.getIndexOfThisSubtask, in)
       }
     })

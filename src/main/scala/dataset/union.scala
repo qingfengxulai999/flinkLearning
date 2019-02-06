@@ -1,6 +1,6 @@
 package dataset
 
-import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment, GroupedDataSet}
+import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment}
 import org.apache.flink.streaming.api.scala._
 
 object union {
