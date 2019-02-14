@@ -8,6 +8,7 @@ object map_flatmap {
           val data: DataSet[(String, Int)] = env.fromElements(("A",1),("B",1),("C",1))
           val map_result: DataSet[String] = data.map(line=>line._1+line._2)
           map_result.print()
+          //todo:这里为什么?
           val flatMap_result: DataSet[Char] = data.flatMap(line=>line._1+line._2)
           flatMap_result.print()
 

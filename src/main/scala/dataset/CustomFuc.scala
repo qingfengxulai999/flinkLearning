@@ -2,7 +2,7 @@ package dataset
 
 import java.lang
 
-import org.apache.flink.api.common.functions.{GroupCombineFunction, GroupReduceFunction}
+import org.apache.flink.api.common.functions.GroupReduceFunction
 import org.apache.flink.api.scala.{DataSet, ExecutionEnvironment, GroupedDataSet}
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.util.Collector
@@ -26,14 +26,11 @@ object Custom_fuc {
 
 import collection.JavaConverters._
 
-class Custom_fuct extends GroupReduceFunction[(String, Int), (String, Int)] with GroupCombineFunction[(String, Int), (String, Int)] {
-  override def reduce(values: lang.Iterable[(String, Int)], out: Collector[(String, Int)]): Unit = {
-    for (in <- values.asScala){
-      out.collect(in._1,in._2)
-    }
-  }
+//看起来比较冗余,reduce必须
+// with GroupCombineFunction[(String, Int), (String, Int)] 并没有作用
+class Custom_fuct extends GroupReduceFunction[(String, Int), (String, Int)] {
 
-  override def combine(values: lang.Iterable[(String, Int)], out: Collector[(String, Int)]): Unit = {
+  override def reduce(values: lang.Iterable[(String, Int)], out: Collector[(String, Int)]): Unit = {
     var num = 0
     var s = ""
     for (in <- values.asScala) {

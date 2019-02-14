@@ -23,7 +23,7 @@ object source {
       filePath = "data/words.csv",
       lineDelimiter = "\n",
       fieldDelimiter = ",",
-      lenient = false,
+      lenient = false, //容错处理
       ignoreFirstLine = true,
       includedFields = Array(0, 1, 2, 3))
     data.print()

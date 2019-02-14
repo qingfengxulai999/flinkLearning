@@ -19,6 +19,7 @@ object demo1 {
       line => for (index <- 0 until line.length - 1) yield (line(index) + "+" + line(index + 1), 1)
     }
     val group_data: GroupedDataSet[(String, Int)] = tuple_data.groupBy(0)
+    //等同于reduce((x,y)=>(x._1,x._2+y._2))
     val result: AggregateDataSet[(String, Int)] = group_data.sum(1)
     result.print()
 

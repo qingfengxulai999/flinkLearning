@@ -28,7 +28,8 @@ object join {
     data2 += ((5, "class3"))
     data2 += ((6, "class3"))
     data2 += ((7, "class4"))
-    val input1: DataSet[(Int, String, Double)] = env.fromCollection(Random.shuffle(data))
+    val input1: DataSet[(Int, String, Double)] = env.fromCollection(data)
+    //Random.shuffle将集合中的顺序打乱并返回,可有可无
     val input2: DataSet[(Int, String)] = env.fromCollection(Random.shuffle(data2))
     val result: DataSet[(Int, String, Double, String)] = input1.join(input2).where(0).equalTo(0) {
       (line1, line2) => (line1._1, line1._2, line1._3, line2._2)
